@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+	<style>
+		.button {
+			position: absolute;
+			margin-left: 10px;
+			background-color: #0b5cab;
+			width: 454px;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 20px;
+			/* margin: 24px; */
+			margin-left: 755px;
+			margin-top: -413px;
+			margin-top: -74px;
+			cursor: pointer;
+			transition: all 0.1s ease 0s;
+			border: 1px solid transparent;
+			border-radius: 5px;
+			margin-bottom: 14px;
+		}
+
+		#bottomline1 {
+			margin-top: -51px;
+			position: absolute;
+			margin-left: 860px;
+			font-size: 30px;
+		}
+
+		#container {
+
+			margin-top: -40px;
+			margin-left: 100px
+		}
+	</style>
+
+
+	<div id="container" style="height: 100%"> </div>
+
+
+	<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+	<script type="text/javascript" th:inline="javascript">
+		var dom = document.getElementById('container');
+		var myChart = echarts.init(dom, null, {
+			renderer: 'canvas',
+			useDirtyRect: false
+		});
+		var app = {};
+
+		var option;
+
+		option = {
+			tooltip: {
+				trigger: 'item'
+			},
+			legend: {
+				top: '5%',
+				left: 'center',
+				// doesn't perfectly work with our tricks, disable it
+				selectedMode: false
+			},
+			series: [
+				{
+					name: 'Mindwar Student',
+					type: 'pie',
+					radius: ['60%', '70%'],
+					center: ['50%', '50%'],
+					// adjust the start angle
+					startAngle: 180,
+
+					label: {
+						fontSize: 20,
+						show: true,
+						formatter(param) {
+							// correct the percentage
+							return param.name + ' (' + param.value + ')';
+						}
+					},
+					data: [
+
+						{value: [[${Candidate_1}]], name: 'Candidate 1'},
+						{value: [[${Candidate_2}]], name: 'Candidate 2'},
+						{value: [[${Candidate_3}]], name: 'Candidate 3'},
+						{value: [[${Candidate_4}]], name: 'Candidate 4'},
+						{
+							// make an record to fill the bottom 50%
+							// value: 1048 + 735 + 580 + 484 + 300,
+							itemStyle: {
+								// stop the chart from rendering this piece
+								color: 'none',
+								decal: {
+									symbol: 'none'
+								}
+							},
+							label: {
+								show: false
+							}
+						}
+					]
+				}
+			]
+		};
+
+		if (option && typeof option === 'object') {
+			myChart.setOption(option);
+		}
+		window.addEventListener('resize', myChart.resize);
+	</script>
+
+
+	<!--<form th:action="@{/logout}" method="post">
+		<input type="button" class="button" id="button" value="Log Out" onclick="onCliicky()"> 
+	</form>-->
+	<a th:href="@{/loginCredential}" id="bottomline1" onclick="onCliicky()" >Logging Out Here...!! </a>
+
+	<script>
+
+		function onCliicky() {
+			alert('Thank you For Visiting Our Portal....!!!')
+			window.close();
+		}
+
+
+	</script>
+</body>
+
+</html>

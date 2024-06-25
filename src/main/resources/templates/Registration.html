@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register Here...!!!</title>
+	<link rel="icon" th:href="@{/Images/jforce-Logo.png}">
+	<link rel="stylesheet" th:href="@{/CSS/Register.css}">
+</head>
+
+<body>
+
+	<div class="main">
+		<div class="left">
+
+			<div class="top">
+				<img th:src="@{/Images/jforce-Logo.png}" id="img1" alt="">
+				<img th:src="@{/Images/content-box.png}" id="img2" alt="">
+			</div>
+			<div class="bottom">
+				<img src="https://www.salesforce.com/content/dam/web/en_us/www/images/form/signup/image-free-trial-sales.png"
+					id="img3" alt="">
+			</div>
+
+		</div>
+
+
+		<div class="right">
+			<div class="main2">
+				<b id="line1">Sign up now to start your free sales trial.</b>
+				<p id="line2">Complete the form to start your free trial. Our team will be in <br>touch to help you make
+					the most of your trial.</p>
+
+
+
+
+				<form th:action="@{/register}" method="post" th:object="${user}" >				
+					<input type="firstname" placeholder="First Name" th:field="*{firstname}"  id="firstname" name="firstname" required> <br>
+					<input type="lastname" placeholder="Last Name" th:field="*{lastname}" id="lastname" name="lastname" required> <br>
+					<input type="Email ID" placeholder="john@example.com" th:field="*{emailid}" id="emailid" name="emailid" required> <br>
+					<input type="Password" placeholder="Password" th:field="*{password}" id="password" name="password" required> <br>
+					<input type="Contact Number" placeholder="Contact Number" th:field="*{contactnumber}"	id="contactnumber" name="contactnumber" required> <br>
+
+					<div class="butons">
+						<input type="submit" class="button" id="button" value="Register Here" onclick="registrationSuccess()">
+						<!--<input type="submit" class="button2" id="button2" value="Login" th:href="@{/loginCredential}"> -->
+					</div>
+				</form>
+
+
+
+
+
+				         
+				<input type="checkbox" id="domain2">
+				<p id="domain1">I agree to the Main Services Agreement.</p>
+				<article id="article1">Your free trial may be provisioned on or migrated to Hyperforce, Salesforce's
+					public cloud infrastructure.
+
+
+
+
+					By registering, you confirm that you agree to the storing and processing of your personal data by
+					Salesforce as described in the Privacy Statement.</article>
+
+			</div >
+		<p id="text">Already login ?  </p> <a th:href="@{/loginCredential}" id="bottomline1">Logging Here...!!  </a>
+
+		</div>
+
+		<script>
+			function registrationSuccess() {
+				alert('You Successfully Registerd Now You Are able to Login....!!');
+			}
+
+		</script>
+	</div>
+</body>
+
+</html>

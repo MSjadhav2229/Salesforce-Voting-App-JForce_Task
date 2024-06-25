@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<title>Voting Booth</title>
+
+	<link rel="icon" th:href="@{/Images/jforce-Logo.png}">
+	<link rel="stylesheet" th:href="@{/CSS/voting booth.css}">
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="main1">
+			<div class="candidate">
+				<img id="img1"
+					src="https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/15374487265ba39b166b692.jpeg"
+					alt="Candidate 1">
+				<h2>Candidate 1</h2>
+				<p>Party: VBA</p>
+				<p>Name: Prakash Ambedkar</p>
+				<button onclick="vote('Candidate 1')">Vote</button>
+			</div>
+			<div class="candidate">
+				<img id="img2"
+					src="https://www.thoughtco.com/thmb/o2xaDCaMW93CkSN0kVm53Rj5-Iw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/BarackObama-799035cd446c443fb392110c01768ed0.jpg"
+					alt="Candidate 2">
+				<h2>Candidate 2</h2>
+				<p>Party: DP</p>
+				<p>Name: Barack Obama</p>
+				<button onclick="vote('Candidate 2')">Vote</button>
+			</div>
+
+		</div>
+
+		<div class="main2">
+			<div class="candidate">
+				<img id="img3"
+					src="https://imgnew.outlookindia.com/public/uploads/articles/2017/11/6/Ratan-tata_20161224_600_855.jpg"
+					alt="Candidate 3">
+				<h2>Candidate 3</h2>
+				<p>Party: TATA</p>
+				<p>Name: Ratan Tata</p>
+				<button onclick="vote('Candidate 3')">Vote</button>
+			</div>
+			<div class="candidate">
+				<img id="img4"
+					src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQCyzdroOgXf1JRT-59-ejJoIE0a9KVvyVwXUrA5xytU8gCuncLXYXL3DO2b1_-YnaUWD0lgEsd3ddXvZg"
+					alt="Candidate 4">
+				<h2>Candidate 4</h2>
+				<p>Party: BJP</p>
+				<p>Name: Narendra Modi</p>
+				<button onclick="vote('Candidate 4')">Vote</button>
+			</div>
+
+
+		</div>
+
+		<!--<input type="button" class="button" id="button" value="Log Out" onclick="function1()">-->
+<a th:href="@{/loginCredential}" id="bottomline1" onclick="function1()">Logging Out Here...!! </a>
+
+	</div>
+	<script>
+
+		var voted = false; // Flag to track whether a vote has been cast
+
+	function vote(candidate) {
+		
+		
+		
+		// Make an AJAX POST request to the /vote endpoint
+        fetch('/vote', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `candidates=${candidate}`,
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data); // Display a success message
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+		
+		
+		
+		
+		
+		
+			if (!voted) {
+				alert('You Voting Voice Stored Successfully..!!\n\nYou have voted for ' + candidate + '.');
+				voted = true; // Set the flag to true
+				window.close();
+			} else {
+				alert('YOU HAVE ALREADY VOTED....!!!!!'); // Display a message if the user has already voted
+			}
+		}
+
+		function function1() {
+			alert('!!...Thank YOU SO MUCH VISITING OUR PORTAL...!!\n\nYou Voting Voice Stored Successfully..!!'); 
+			window.close();
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login | Jforce</title>
+	<link rel="icon" th:href="@{/Images/jforce-Logo.png}">
+	<link rel="stylesheet" th:href="@{/CSS/login.css}">
+</head>
+
+<body>
+
+	<div class="main">
+
+		<div class="left">
+			<img id="jforce-Logo" th:src="@{/Images/jforce-Logo.png}" alt="">
+
+			<div class="loginForm">
+
+				<form for="login-form" th.action="@{/loginCredential}" method="post" th.object="${user}">
+					<h1 for="username">Username</h1>
+					<input type="email" id="emailid" placeholder="john@example.com" th.field="*{emailid}"
+						name="emailid"><br><br>
+					<h1 for="password">Password</h1>
+					<input type="password" id="password" placeholder="Password" th.field="*{password}"
+						name="password"><br>
+					<input type="submit" class="button" id="button" value="Login">
+					<!--<input type="submit" class="button" id="registerButton" value="Register Here">--><br>
+					<!--<input type="checkbox" id="reminderCheckBOx" name="Remember" value="Remember">
+					<label id="reminderCheckBOx"> Remember me</label><br>
+					
+					
+					
+					
+					<a href="" id="bottomline1">Forgot Your Password?</a>
+					<a href="" id="bottomline2">Registeration Here...!</a>-->
+
+				</form>
+			</div>
+		</div>
+
+
+
+		<div class="right">
+			<img th:src="@{/Images/login Right Side Image.png}" alt="">
+		</div>
+	</div>
+
+
+
+
+</body>
+
+</html>

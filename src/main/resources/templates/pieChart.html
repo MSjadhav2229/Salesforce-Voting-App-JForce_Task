@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>PIE</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+
+</head>
+<body>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+	<div id="container" style="height: 600px"></div>
+	<script th:inline="javascript">
+		Highcharts.chart('container', {
+			chart : {
+				type : 'pie',
+				options3d : {
+					enabled : true,
+					alpha : 50,
+					beta : 0
+				}
+			},
+			title : {
+				text : 'Voting Dashboards',style: {
+                        fontSize: '50px' // Set the desired font size
+                    }
+			},
+			tooltip : {
+				pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			plotOptions : {
+				pie : {
+					allowPointSelect : true,
+					cursor : 'pointer',
+					depth : 35,
+					dataLabels : {
+						enabled : true,
+						format : '{point.name}',
+						 style: {
+                        fontSize: '20px' // Set the desired font size
+                    },
+                    formatter: function () {
+                        return this.key + '<br>' + Highcharts.numberFormat(this.y, 1) + '%'; // Customize the label format
+                    }
+					}
+				}
+			},
+			series : [ {
+				type : 'pie',
+				name : 'Ratio',
+				data : [ [ 'Candidate 1', [[${Candidate_1}]] ], [ 'Candidate 2', [[${Candidate_2}]] ],[ 'Candidate 3', [[${Candidate_3}]] ],[ 'Candidate 4', [[${Candidate_4}]] ]  ]
+			} ]
+		});
+	</script>
+	
+	
+</body>
+</html>
+

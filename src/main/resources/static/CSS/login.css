@@ -1,0 +1,139 @@
+.body {
+	height: 100vh;
+	width: 100vw;
+	margin-top: 0 px;
+	margin-bottom: 0 px;
+	margin-left: 0 px;
+	margin-right: 0 px;
+	padding-top: 0px;
+
+
+}
+
+
+@font-face {
+	font-family: OpenSans;
+	src: url(OpenSans-Light.ttf);
+}
+
+.main {
+	/* background-color: red; */
+	display: flex;
+}
+
+.left {
+	background-color: #e9f4fe;
+	width: 50%;
+}
+
+#jforce-Logo {
+	height: 178px;
+	width: 338px;
+	margin-top: 74px;
+	margin-left: 306px;
+}
+
+.loginForm {
+	height: 302px;
+	width: 440px;
+	background-color: white;
+	margin-top: 71px;
+	margin-left: 240px;
+	border: 1px;
+	box-sizing: border-box;
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	padding-left: 28px;
+	padding-right: 48px;
+	padding-top: 6px;
+	padding-bottom: 58px;
+}
+
+h1 {
+	font-size: 16px;
+	/* margin-top: 100px; */
+	font-family: OpenSans;
+	margin-left: 4px;
+	color: #032d60;
+}
+
+#emailid,
+#password,
+#button {
+	font-family: OpenSans;
+}
+
+#emailid,
+#password {
+	width: 349px;
+	height: 42px;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(21, 137, 238);
+	outline: 0px;
+	box-shadow: rgb(0, 112, 210) 0px 0px 3px;
+	border-radius: 4px;
+	padding-left: 10px;
+}
+
+#reminderCheckBOx {
+	border-bottom-width: 400px;
+	border-color: rgb(255, 0, 0);
+	font-family: OpenSans;
+	font-size: 10px;
+}
+
+.button {
+	background-color: #0b5cab;
+	border: none;
+	color: white;
+	padding: 15px -103px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	/* margin: 4px 2px; */
+	cursor: pointer;
+	transition: all 0.1s ease 0s;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	margin-bottom: 19px;
+	background-color: rgb(0, 112, 210);
+	color: white;
+	transition: all 0.1s ease 0s;
+	border: 1px solid transparent;
+	height: 100px;
+	width: 360px;
+	height: 46px;
+	margin-top: 10px;
+}
+
+#bottomline1 {
+	text-align: left;
+	color: #0070d2;
+	margin-left: 10px;
+}
+
+#bottomline2 {
+	text-align: right;
+	color: #0070d2;
+	margin-right: 10px;
+}
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+#ForgotPassword {
+    font-family: 'Roboto', sans-serif;
+    color: #0b5cab;
+    font-size: 12px;
+    margin-top: 100px;
+
+} */
+
+.right {
+	/* background-color: blue; */
+	width: 50%;
+}
+
+
